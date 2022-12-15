@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      .card-body::first-letter {
+        font-weight: bold;
+        color: #f12a2a;
+        font-size: 30px;
+      }
+
+      .card-body {
+        font-size: 20px;
+      }
+
+      body {
+        background-color: #000000;
+      }
+
+      body::-webkit-scrollbar {
+        width: 0;
+      }
+
+      #scrollpath {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      #progressbar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 100%;
+        background: linear-gradient(to top, #008aff, #00ffe7);
+        animation: animate 5s linear infinite;
+      }
+
+      @keyframes animate {
+
+        0%,
+        100% {
+          filter: hue-rotate(0deg);
+        }
+
+        50% {
+          filter: hue-rotate(360deg);
+        }
+      }
+
+      #progressbar::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, #008aff, #00ffe7);
+        filter: blur(10px);
+      }
+
+      #progressbar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, #008aff, #00ffe7);
+        filter: blur(30px);
+      }
+   
+    </style>
+    <script>
+      let progress = document.getElementById('progressbar');
+      let totalHeight = document.body.scrollHeight - window.innerHeight;
+      window.onscroll = function() {
+        let progressHeight = (window.pageYOffset / totalHeight) * 100;
+        progress.style.height = progressHeight + "%";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="progressbar"></div>
+    <div id="scrollpath"></div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <a href="#demo" class="navbar-toggler-icon" data-toggle="collapse"></a>
+      <div id="demo" class="collapse">
+        <!-- Brand/logo -->
+        <!-- Links -->
+        <ul class="navbar-nav" style="font-weight:bold ; font-size:15px; ">
+          <li class="navbar-brand" href="#" style="color: ffffff; font-size: 23px;
+        font-weight: bold;position: relative;     left: 17px;
+    bottom: 1px;
+    font-size: 23px;">Les ourses</li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="cursor:context-menu ;     color: #2779a7;    position: relative;
+                left: 172px;
+                ">|</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link wiou" href="about me.html" style="color: #ECD06F; position:relative;left:212px;">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="cursor:context-menu ;     color: #2779a7;    position: relative;
+            left: 251px;
+            ">|</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ourses blanc.html" style="color: #ECD06F;      position: relative;
+            left: 289px;">Les ourses blancs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="cursor:context-menu ;     color: #2779a7;    position: relative;
+            left: 322px;
+            ">|</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about me.html" style="color: #ECD06F;     position: relative;left: 359px;"> About me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="cursor:context-menu ;     color: #2779a7;position: relative;left: 400px;
+            ">|</a>
+          </li>
+          
+          <li class="nav-item" style="position: relative;    right: 25px;">
+            <a class="nav-link" href="sign in page.html">
+              <i class="fa fa-sign-in" style="font-size: 25px;
+            position: relative;
+            left: 1016px;
+            bottom: 4px;
+            color: #f1732a;"></i>
+              <button type="button" class="btn btn-link" style=" position:relative;left: 1011px;bottom: 9px;
+            font-size: 25px;" data-toggle="modal" data-target="#myModal">Sign-in</button>
+            </a>
+          </li>
+      </div>
+      </ul>
+    </nav>
+    <ol type="1" style="font-weight: bold; font-size: 40px; color: white; padding-top: 3%; ">
+      <li>
+        <h3 style="font-size:40px ;">Intoduction générale:</h3>
+      </li>
+    </ol>
+    <p style="font-weight: bold; font-size: 25px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   color: white;">L'Ours noir (Ursus americanus), aussi appelé baribal, est l'ours le plus commun en Amérique du Nord. Il se rencontre dans une aire géographique qui s'étend du nord du Canada et de l'Alaska au nord du Mexique, et des côtes atlantiques aux côtes pacifiques de l'Amérique du Nord. Il est présent dans un bon nombre d'États américains et dans toutes les provinces canadiennes. Il préfère les forêts et les montagnes où il trouve sa nourriture et peut se cacher. La population d'ours noirs était sans doute de deux millions d'individus autrefois. Aujourd'hui, l'on estime qu'il existe entre 500 000 et 750 000 ours noirs sur ce continent. Longtemps chassé pour sa fourrure, il subit aujourd'hui la réduction de son milieu naturel par l'homme. La population de l'Ours noir est généralement stable1.
+
+        Plus petit que l'Ours brun et l'Ours blanc, cet animal présente une couleur de fourrure plus ou moins foncée selon les régions, allant du noir au blanc (la fourrure blanche est provoquée par un caractère récessif) en passant par le rougeâtre et le gris argenté. On le nomme donc à tort « ours noir ». Seize sous-espèces, dont certaines sont menacées, sont reconnues. L'Ours noir n'hiberne pas au sens strict, mais passe l'hiver dans un état de somnolence en vivant sur ses réserves de graisses accumulées pendant l'automne. Il est omnivore, même si son régime alimentaire est dominé par les végétaux. Contrairement aux idées reçues[réf. nécessaire], l'Ours noir est un bon nageur et il grimpe facilement aux arbres pour échapper à un danger.</p>
+    <div id="accordion" style="padding-top:3% ; width: 90%;">
+      <div class="card" style=" border: solid 2px black; background-color: black;">
+        <div class="card-header">
+          <a class="card-link" data-toggle="collapse" href="#collapseOne" style="font-weight: bold; font-size: 30px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; "> 2.Caractéristiques physiques: </a>
+        </div>
+        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+          <div class="card-body" style="font-weight: bold; color: white; background-color: rgb(0, 0, 0); font-family: 'Courier New', Courier, monospace; font-size: 26px;">L’Ours noir mesure généralement entre 140 et 200 cm de longueur2. Sa taille au garrot est comprise entre 100 et 120 cm3.
+
+            L’Ours noir est plus petit que l’Ours blanc et l’Ours brun. Sa masse dépend de l’âge, du sexe de l’animal et de la saison : en automne, l’Ours noir grossit et fait des réserves de graisse afin de passer l’hiver. Les femelles pèsent entre 40 kg et 180 kg (moyenne de 70-80 kg4,3), alors que les mâles font entre 115 et 275 kg (moyenne de 120 kg4). Un mâle de 400 kg a été trouvé dans le comté de Craven en Caroline du Nord5.
+            
+            La couleur du pelage varie du noir au blanc, en passant par de nombreuses nuances : chocolat, brun, cannelle, blond sont des couleurs plus fréquentes dans les forêts de l’ouest américain et du Canada4,2 que dans les régions de l’est. Au sud de l’Alaska et en Colombie-Britannique vit l’Ours Kermode, une sous-espèce dont de nombreux individus, les spirit bears6 (« ours-esprits1 ») ont un pelage blanc crème. Des ours d’un gris bleuté occupent la baie des Glaciers en Alaska7. Tous ces animaux appartiennent bien à l’espèce de l’Ours noir américain. Les albinos sont très rares. Certains individus portent une ou plusieurs taches blanches sur le cou ou sur la poitrine3,2. L’Ours noir mue et son épaisse fourrure le protège contre les piqûres des insectes et contre les rigueurs de l’hiver.
+            
+            
+            L’Ours noir possède un museau brun
+            Les ours noirs sont capables de se tenir debout et de marcher sur leurs pattes arrière : celles-ci sont légèrement plus longues (13 à 18 cm8) que les pattes avant. Chaque patte est dotée de cinq doigts avec des griffes non rétractiles utilisées pour déchirer, creuser, gratter le sol et grimper aux arbres. Un coup d’une patte avant suffit à tuer un cerf adulte.
+            
+            L’Ours noir possède de petits yeux généralement de couleur noire ou marron, des oreilles arrondies, un long museau pointu de couleur brune, des naseaux allongés et une queue relativement courte (8-14 cm2). Sa vision n’est pas particulièrement bonne mais les expériences montrent qu’elle lui permet de distinguer les couleurs5. En revanche, son ouïe et son odorat, sept fois plus affûté que celui d'un chien limier1, sont très développés ; sa langue agile et ses lèvres mobiles lui permettent de manger de petites baies et des fourmis. Enfin, son profil facial droit et son museau pointu le différencient du Grizzli qui vit aussi en Amérique du Nord3. L’Ours noir est en outre plus petit et ne possède pas de bosse entre les épaules3.</div>
+        </div>
+      </div>
+      <div class="card" style=" border: solid 2px black ; background-color: black;">
+        <div class="card-header">
+          <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo" style="font-weight: bold; font-size: 30px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  "> 3.Répartition et habitat:</a>
+        </div>
+        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+          <div class="card-body" style="font-weight: bold; background-color: rgb(0, 0, 0); color: white; font-family: 'Courier New', Courier, monospace; font-size: 26px;">L’Ours noir occupe un espace compris entre les régions septentrionales de l’Alaska et le Mexique. Il est réparti sur seulement trois pays, le Mexique, les États-Unis et le Canada, alors qu'il comporte deux fois plus d'individus que toutes les autres espèces d'ours connues. Il se rencontre du littoral de l’Atlantique aux côtes du Pacifique9. Même s’il préfère les forêts et les zones plantées d’arbustes, il peut s’adapter à des climats et des milieux naturels très variés : il fréquente aussi bien les marécages et les forêts pinifères subtropicales du sud-est des États-Unis (Louisiane, Alabama, Floride, etc.) que les hautes montagnes du sud-ouest, entre 900 et 3 000 mètres d’altitude2, ou encore la toundra du Labrador6. Il habite aussi dans les forêts mixtes du sud-est du Canada et du nord-est des États-Unis, mais également dans le sud des montagnes Appalaches. L'Ours noir est également trouvé partout dans des habitats convenables à l'ouest. Ces habitats comprennent souvent les zones arides chapparal montagnes couvertes[pas clair] en Californie du Sud, les forêts tempérées de l'Oregon et de Washington, sur toute la longueur des montagnes Rocheuses, et même des parties du désert de Sonora. Il est en revanche quasiment absent des zones arides[Passage contradictoire] du continent nord-américain.
+
+            L’hiver passé, l’Ours noir quitte son abri et se met en quête de nourriture à des altitudes moyennes et dans les vallées exposées au soleil. À mesure que l’été approche, il regagne des altitudes plus élevées9. La forêt constitue un milieu favorable pour l’Ours noir qui peut s’y cacher et se protéger du soleil. </div>
+        </div>
+      </div>
+      <div class="card" style=" border: solid 2px black; background-color: black;">
+        <div class="card-header">
+          <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree" style="font-weight: bold; font-size: 30px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; "> 4.Comportement</a>
+        </div>
+        <div id="collapseThree" class="collapse" data-parent="#accordion">
+          <div class="card-body" style="font-weight: bold; background-color: rgb(0, 0, 0);  color: white; font-family: 'Courier New', Courier, monospace; font-size: 26px;">Malgré leur taille et leur masse, les ours noirs sont étonnamment agiles dans leurs mouvements.
+
+            Ils se déplacent en fonction des saisons pour rechercher leur nourriture. Ils grimpent facilement aux arbres pour échapper au danger, grâce à leurs muscles dorsaux puissants et à leurs griffes. Ils peuvent courir jusqu’à 55 km/h3. L’ours est un animal plantigrade, c’est-à-dire qu’il marche en posant entièrement la plante des pieds sur le sol. Il utilise la démarche à l’amble. Il est en outre un excellent nageur et est capable de traverser un lac pour rejoindre une île.
+            
+            
+            Ours noir
+            L’Ours noir est la plupart du temps un animal solitaire sauf pendant la période de rut et dans la relation qu’entretient la mère avec ses oursons. Les ours peuvent se rassembler occasionnellement dans les zones d’abondance alimentaire. Ils sortent généralement le jour, sauf dans les secteurs où il y a beaucoup d’humains : ils préfèrent alors la nuit pour les éviter. Contrairement aux idées reçues, les attaques d’ours noirs contre les humains sont rares : moins de 36 attaques mortelles ont été recensées tout au long du xxe siècle2. Si la femelle grizzly n’hésite pas à défendre ses petits, l’ourse noire ne s’en prend pas aux humains pour protéger sa progéniture2.
+            
+            Les mâles griffent et mordent les arbres pour communiquer pendant la saison de l’accouplement3 et peut-être pour marquer leur territoire. Ils se grattent le dos sur les arbres1. Ils utilisent également leurs odeurs. Ces territoires varient entre 20 et 100 km26 et couvrent ceux de plusieurs femelles. En cas de menace, les ourses poussent des plaintes ; les oursons émettent des cris ressemblant à des pleurs lorsqu’ils ont peur. Les adultes claquent des dents lorsqu’ils sont effrayés5. L’Ours noir communique également par des expressions faciales et des positions particulières. Lorsqu’il se dresse sur ses pattes arrière, c’est pour flairer un danger, une odeur intrigante ou avoir un meilleur point de vue.
+            
+            Les ours noirs figurent parmi les mammifères les plus intelligents5 : ils sont souvent dressés pour réaliser des numéros de cirque. Leur cerveau est relativement gros comparé à la taille de leur corps.
+            
+            Les ours noirs passent l’hiver dans un état de somnolence : cela signifie qu’ils peuvent réagir à une attaque d’un autre animal. Lorsque les jours diminuent, ils sécrètent une hormone qui agit comme un somnifère. Leur rythme cardiaque passe alors de 50 à 10 pulsations par minute10. La température du corps diminue légèrement (moins de 31 °C, soit 6,8 °C en dessous de la température corporelle d’été5) car leur masse est imposante (ils perdent donc moins facilement leur chaleur que les petits mammifères qui hibernent). Ils passent tout l’hiver sans manger, ni boire, ni uriner, ni déféquer4,5 et ressortent au printemps. Cet état de dormance dure de quatre à sept mois entre octobre et mai9,4,10. Cette durée varie en fonction du climat : plus l’hiver est long, plus la période de somnolence se prolonge. Aussi, celle-ci n’existe pas dans les régions du sud sauf pour les ourses enceintes4. Un ours noir peut perdre jusqu’à 30 % de sa masse pendant l’hiver3.</div>
+        </div>
+      </div>
+    </div>
+    <h3 style="font-weight: bold; font-size: 40px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: white;">5.Menaces et conservation:</h3>
+    <ul style="color: white;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;">
+      <li>Histoire: <ul>
+          <li>Avant l’arrivée des Européens, les Amérindiens chassaient l’ours pendant l’hiver, profitant de la période de dormance. L’animal leur fournissait de la viande, de la graisse et de la fourrure. Les guerriers portaient des colliers de griffes autour de leur cou ; par superstition, ils ne prononçaient jamais son nom13 et le chasseur devait demander pardon avant de tuer un ours. L’art amérindien représentait cet animal vénéré sur les totems. Au cours de certaines cérémonies, ils pratiquaient la danse de l’ours. À la fin du xviie siècle, la Compagnie de la Baie d’Hudson encourageait les Amérindiens à faire le commerce des fourrures d’ours : ils échangeaient des couvertures de laine contre des peaux d’ours noirs14. L’Ours noir fut également chassé pour confectionner les célèbres chapeaux de la garde britannique et de certains régiments de l’armée canadienne et de l’armée britannique. L’utilisation de la fourrure des ours pour ces couvre-chef, des animaux tués dans des collisions avec des automobiles ou des prises de chasse, est critiquée par des associations de protection des animaux comme PETA. Des essais de chapeaux en fourrure synthétique ont été réalisés. Enfin, les pattes et la bile du plantigrade sont aujourd’hui encore très recherchées en Asie : un gramme de bile, utilisée dans la pharmacopée chinoise, coûte 155 dollars15.</li>
+        </ul>
+        <li>Prédateurs et mortalité:</li>
+        <ul><li>Dans la nature, l’espérance de vie moyenne du mammifère est d’environ 10 ans ; il peut parfois vivre jusqu’à 30 ans9,3. Aujourd’hui, on estime entre 500 0003 et 750 0005,13 le nombre d’ours noirs sur le continent américain. Leur faible fécondité et leur maturité sexuelle tardive constituent des menaces à la survie de l’espèce.
+
+            Les principales causes de mortalité sont les collisions avec les automobiles, sur des routes qui sont une cause de fragmentation forestière16. La chasse, également facilitée par les routes, est une autre source de mortalité.
+            
+            Les oursons meurent parfois sous-alimentés, ou d'une chute depuis un arbre. Ils constituent des proies pour les prédateurs tels que le loup, le puma, le lynx, le coyote17,9, l’Ours brun et les autres ours noirs, notamment les mâles en manque de nourriture3. Les jeunes séparés accidentellement de leur mère meurent rapidement.
+            
+            Les ours noirs continuent d’être chassés pour finir comme trophée, descente de lit mais aussi pour leur viande, au Canada et en Alaska3. Environ 30 000 ours noirs par an sont tués dans toute l’Amérique du Nord2, mais cette chasse est très réglementée. Les principaux parasites de l’Ours noir sont le ténia, l’ascaris et les vers du genre trichinella3. Ils peuvent également souffrir de tuberculose, d’arthrite et de broncho-pneumonie18.
+            
+            Les populations de l’ouest des États-Unis sont encore nombreuses, alors que celles de l’est du pays ont tendance à se réduire dangereusement. Ces dernières vivent essentiellement dans les montagnes, les forêts ainsi que dans les parcs nationaux et les réserves naturelles. Les régions à l’est du Mississippi sont en effet les plus anthropisées alors que de larges zones des Montagnes Rocheuses des hauts plateaux et du Grand Bassin demeurent sauvages. L’animal est absent de onze États sur 50 dont Hawaii, les deux Dakota, les États très urbanisés comme le Maryland ou le Delaware, et plusieurs États du centre-est dans lesquels montagnes et forêts sont inexistantes9.
+            
+            La situation de l’Ours noir varie selon les sous-espèces et les régions. Ainsi, l’Ours noir de Floride (Ursus americanus floridanus) est classé comme espèce menacée9. Une étude menée en Californie en 1998 évalue entre 17 000 et 23 000 le nombre d’ours noirs dans cet État de l'ouest des États-Unis19. Cette population est actuellement stable, voire en très légère progression19.
+            
+            Dans le parc national de Yosemite en Californie, la population des ours noirs est estimée entre 300 et 500 individus20. Les rangers en dénombrent une quinzaine dans la vallée de Yosemite21, c’est-à-dire le secteur le plus fréquenté par les touristes. L’Ours noir s’adapte facilement à la présence des hommes et ne néglige pas leur nourriture. Il peut alors pénétrer dans les campings et dans les véhicules stationnés sur les parkings. Autrefois, les ours étaient nourris par l'homme, ce qui provoqua des attaques et de nombreux blessés. Aujourd’hui, de nombreux panneaux d’information et des messages de prévention déconseillent de nourrir les animaux sauvages, en particulier les plantigrades. Les poubelles du parc ont été consolidées et fermées hermétiquement ; des box ont été aménagés dans les campings pour entreposer la nourriture. Les incidents sont en baisse, pourtant deux à trois ours agressifs doivent être abattus chaque année dans le Yosemite.
+            
+            Dans un autre parc national américain, au Yellowstone, on nourrissait aussi les ours, ce qui constituait une attraction appréciée des touristes. Aujourd’hui, le parc a abandonné cette habitude. On compte actuellement 10 000 ours noirs au Yellowstone22.
+            
+            À l’est des États-Unis, il y a une population de 400 à 600 ours noirs dans le Parc national des Great Smoky Mountains23. C’est au cours des années pauvres en faînes que les incidents avec les visiteurs se sont multipliés. Dans cette région, l’Ours noir subit la concurrence d’espèces invasives telles que le Sanglier d’Europe, qui est un important consommateur de glands. Les rangers endorment les ours mâles les plus dangereux et les déplacent vers des secteurs sauvages.
+            
+            Dans le New Hampshire, le naturaliste Ken Killian a ouvert un établissement qui recueille et soigne les ours noirs blessés ou les oursons égarés15. Une expérience similaire est menée dans le Minnesota où 3 000 ours noirs vivent dans la Superior National Forest22.
+            
+            Des corridors biologiques et des écoducs ont été aménagés pour l’Ours noir de Floride pour empêcher son extinction.
+            
+            L’Ours noir américain est protégé par la loi dans plusieurs États américains du Sud comme la Louisiane, le Mississippi ou le Texas. Tuer illégalement un ours noir est puni par une importante amende et une peine de prison.</li></ul></li>
+      </li>
+    </ul>
+    <h2 style="color: white; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight:bold;">6.quelque photo de l'ours brun:</h2>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width:70% ; border: solid;
+border-radius: 5px; position: relative; left: 15%;">s <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="img9.jpg" alt="First slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img10.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img 11.jpg" alt="Third slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img12.jpg" alt="Third slide">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </body>
+</html>

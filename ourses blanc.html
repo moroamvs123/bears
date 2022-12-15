@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      .card-body::first-letter {
+        font-weight: bold;
+        color: #f12a2a;
+        font-size: 30px;
+      }
+
+      .card-body {
+        font-size: 20px;
+      }
+
+      body {
+        background-color: #000000;
+      }
+
+      body::-webkit-scrollbar {
+        width: 0;
+      }
+
+      #scrollpath {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      #progressbar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 100%;
+        background: linear-gradient(to top, #008aff, #00ffe7);
+        animation: animate 5s linear infinite;
+      }
+
+      @keyframes animate {
+
+        0%,
+        100% {
+          filter: hue-rotate(0deg);
+        }
+
+        50% {
+          filter: hue-rotate(360deg);
+        }
+      }
+
+      #progressbar::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, #008aff, #00ffe7);
+        filter: blur(10px);
+      }
+
+      #progressbar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, #008aff, #00ffe7);
+        filter: blur(30px);
+      }
+    </style>
+    <script>
+      let progress = document.getElementById('progressbar');
+      let totalHeight = document.body.scrollHeight - window.innerHeight;
+      window.onscroll = function() {
+        let progressHeight = (window.pageYOffset / totalHeight) * 100;
+        progress.style.height = progressHeight + "%";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="progressbar"></div>
+    <div id="scrollpath"></div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <a href="#demo" class="navbar-toggler-icon" data-toggle="collapse"></a>
+      <div id="demo" class="collapse">
+        <!-- Brand/logo -->
+        <!-- Links -->
+        <ul class="navbar-nav" style="font-weight:bold ; font-size:25px;">
+          <li class="navbar-brand" href="#" style="color: ffffff; font-size: 23px;
+        font-weight: bold;position: relative;     left: 17px;
+    bottom: 1px;
+    font-size: 23px;">Les ourses</li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="cursor:context-menu ;     color: #2779a7;    position: relative;
+                left: 172px;
+                ">|</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link wiou" href="about me.html" style="color: #ECD06F; position:relative;left:212px;">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="cursor:context-menu ;     color: #2779a7;    position: relative;
+            left: 251px;
+            ">|</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="l'ours brun.html" style="color: #ECD06F;      position: relative;
+            left: 289px;">L’ours brun</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="cursor:context-menu ;     color: #2779a7;    position: relative;
+            left: 322px;
+            ">|</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="l'ours noir.html" style="color: #ECD06F;     position: relative;left: 359px;"> L’ours noir</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="cursor:context-menu ;     color: #2779a7;position: relative;left: 400px;
+            ">|</a>
+          </li>
+          <li class="nav-item" style="position: relative;    right: 25px;">
+            <a class="nav-link" href="sign in page.html">
+              <i class="fa fa-sign-in" style="font-size: 25px;
+            position: relative;
+            left: 602px;
+            bottom: 4px;
+            color: #f1732a;"></i>
+              <button type="button" class="btn btn-link" style=" position:relative;left: 594px;bottom: 9px;
+            font-size: 25px;" data-toggle="modal" data-target="#myModal">Sign-in</button>
+            </a>
+          </li>
+      </div>
+      </ul>
+    </nav>
+    <ol type="1" style="font-weight: bold; font-size: 40px; color: white; padding-top: 3%; ">
+      <li>
+        <h3 style="font-size:40px ;">Intoduction générale:</h3>
+      </li>
+    </ol>
+    <p style="font-weight: bold; font-size: 25px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   color: white;">L'ours blanc (Ursus maritimus), aussi connu sous le nom d'ours polaire, est un grand mammifère omnivore (à prédominance carnivore) originaire de l'Arctique. C'est, avec l'ours kodiak et l'éléphant de mer, l'un des plus grands carnivores terrestres et il figure au sommet de sa pyramide alimentaire. Parfaitement adapté à son habitat, l'ours blanc possède une épaisse couche de graisse ainsi qu'une fourrure qui l'isolent du froid. La couleur blanche de son pelage lui assure un camouflage idéal sur la banquise et sa peau noire lui permet de mieux conserver sa chaleur corporelle. Pourvu d'une courte queue et de petites oreilles1, il possède une tête relativement petite et fuselée ainsi qu'un corps allongé, caractéristiques de son adaptation à la natation. L'ours blanc est parfois considéré comme un mammifère marin semi-aquatique2, dont la survie dépend essentiellement de la banquise et de la productivité marine. Il chasse aussi bien sur terre que dans l'eau. Son espérance de vie est de 15 à 30 ans. Cette espèce vit uniquement sur la banquise autour du pôle Nord, au bord de l'océan Arctique. L'Union internationale pour la conservation de la nature (UICN) estime la population d'ours blancs à environ 26 000 individus3. Elle considère l'espèce comme vulnérable (VU), principalement en raison du réchauffement climatique et du bouleversement de son habitat qui en résulte. En 2015, Morten Jørgensen conclut au contraire que la principale menace pesant sur l'ours polaire est la chasse, loin devant le changement climatique, et estime la population inférieure à 20 000 individus4. Animal charismatique, l'ours blanc a un fort impact culturel sur les peuples Inuits, qui dépendent toujours de sa chasse pour survivre. Il a également marqué la culture populaire via certains de ses représentants comme Knut, ou encore l'art avec la sculpture d'ours blanc réalisée par François Pompon. Le parc national Wapusk au Manitoba, au Canada, est connu pour être la capitale mondiale des ours polaires. C’est l’un des meilleurs endroits pour voir ces ours dans leur environnement, particulièrement à leur arrivée en automne, alors qu’ils attendent que la baie d'Hudson gèle, afin de pouvoir y chasser le phoque5.</p>
+    <div id="accordion" style="padding-top:3% ; width: 90%;">
+      <div class="card" style=" border: solid 2px black; background-color: black;">
+        <div class="card-header">
+          <a class="card-link" data-toggle="collapse" href="#collapseOne" style="font-weight: bold; font-size: 30px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; "> 2.Aspect physique: </a>
+        </div>
+        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+          <div class="card-body" style="font-weight: bold; color: white; background-color: rgb(0, 0, 0); font-family: 'Courier New', Courier, monospace; font-size: 26px;"> L'ours blanc possède la morphologie d'un ours typique : un corps imposant, une fourrure abondante, une grande tête rectangulaire, de petites oreilles arrondies, une courte queue et des pattes puissantes et épaisses. Ses yeux, son museau, ses lèvres, sa peau et ses coussinets sont noirs. Sa principale particularité est d'être le seul ours à manteau blanc. Par rapport à l'ours brun, l'ours blanc a un corps plus long, tout comme son cou et son crâne, mais des oreilles plus petites6. Le profil de l'ours blanc est également différent, avec un museau plus proéminent6. </div>
+        </div>
+      </div>
+      <div class="card" style=" border: solid 2px black ; background-color: black;">
+        <div class="card-header">
+          <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo" style="font-weight: bold; font-size: 30px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  "> 3.Taille et masse </a>
+        </div>
+        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+          <div class="card-body" style="font-weight: bold; background-color: rgb(0, 0, 0); color: white; font-family: 'Courier New', Courier, monospace; font-size: 26px;"> L'ours blanc est, avec l'ours kodiak et l'éléphant de mer, l'un des plus grands carnivores terrestres vivants6. Ils ont une hauteur de 1 à 1,5 m au garrot. Les mâles adultes pèsent généralement entre 400 et 600 kg mais peuvent parfois atteindre les 800 kg pour une taille de 2 à 3 m de long7. L'ours blanc présente un dimorphisme sexuel important : généralement deux fois plus petites que les mâles, les femelles pèsent de 200 à 350 kg et mesurent de 1,8 à 2 mètres7. À la naissance, les oursons ne pèsent que 600 à 700 g8. Le record de masse pour un ours blanc est actuellement de 1 102 kg9. L'ours blanc a des prises de poids assez spectaculaires. Par exemple, au Canada, un ours blanc femelle a pris plus de 400 kg en neuf mois. En novembre, elle pesait 92 kg, mais au mois d'août, elle a été pesée à 505 kg. Ceci s'explique par l'accumulation des graisses de phoque qui sont mangées au printemps9. Des données récentes suggèrent que la masse des ours blancs décline. Ces données peuvent être prises comme une indication des pressions qui pèsent sur eux. Une étude de 2004 de la National Geographic Society a montré que la masse des ours blancs, en moyenne, était inférieure de 25 % à leur masse dans les années 197010. Pour exemple, en 2007, les femelles de la baie d'Hudson avaient une masse moyenne de seulement 230 kg, contre 300 kg dans les années 198011. Leur masse ne les empêche pas d'être très véloces sur la terre ferme. Ils peuvent sans problème être plus rapides qu'un homme à la course. </div>
+        </div>
+      </div>
+      <div class="card" style=" border: solid 2px black; background-color: black;">
+        <div class="card-header">
+          <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree" style="font-weight: bold; font-size: 30px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; "> 4.Peau et fourrure </a>
+        </div>
+        <div id="collapseThree" class="collapse" data-parent="#accordion">
+          <div class="card-body" style="font-weight: bold; background-color: rgb(0, 0, 0);  color: white; font-family: 'Courier New', Courier, monospace; font-size: 26px;"> L'ours blanc est immédiatement reconnaissable à sa fourrure blanc-jaunâtre (admettant une large gamme de variations individuelles et saisonnières) qui lui permet de se camoufler dans le paysage arctique. En réalité, les poils ne sont pas pigmentés en blanc : ils sont non pigmentés, donc incolores, translucides et creux. C'est la diffusion due aux réflexions et réfractions multiples de la lumière visible au travers de ces poils creux qui les fait apparaître blancs12, de la même manière que la neige. Une telle coloration est mimétique, c'est-à-dire qu'il s'agit d'un camouflage pour pouvoir s'approcher plus facilement de ses proies13. Au-delà du spectre visible, une caractéristique des poils est qu'ils absorbent les rayons violets et ultraviolets - ce qui serait dû aux protéines de kératine qui les composent, lesquelles ont la propriété d'absorber les ultraviolets14 - c'est pourquoi la fourrure de l'ours a souvent des reflets jaunâtres. À la différence d'autres mammifères arctiques (tels que le renard arctique), la couleur de la fourrure de l'ours blanc ne change jamais pour une couleur plus foncée en été. Sous son pelage, l'ours blanc a une peau complètement noire, ce qui permet d'absorber le rayonnement qui parvient jusque là de façon optimale15. Certains zoologistes ont émis l'hypothèse que les poils transparents de l'ours blanc seraient des sortes de fibres optiques captant et conduisant la lumière vers cette peau noire pour l'aider à rester au chaud. Mais, outre le fait que ce processus fonctionnerait alors dans les deux sens en favorisant le refroidissement nocturne, cette hypothèse est contredite par des études plus récentes16,14. L'ours blanc renouvelle sa fourrure de mai à août17. La fourrure est habituellement de 5 à 15 cm sur la majeure partie du corps18. Cependant, sur les pattes antérieures, les mâles ont des poils plus longs qui s'allongent jusqu'à l'âge de 14 ans. On suppose que cela est une forme d'attrait pour les femelles, à la manière de la crinière du lion19. </div>
+        </div>
+      </div>
+    </div>
+    <h3 style="font-weight: bold; font-size: 40px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: white;">5.Mode de vie:</h3>
+    <ul style="color: white;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;">
+      <li>Comportement: <ul>
+          <li>Les ours blancs sont des animaux solitaires. Excellents nageurs grâce à leur couche de graisse, ils peuvent être vus en pleine mer à des kilomètres de toute terre. Ils nagent en utilisant leurs pattes avant pour se propulser et leurs pattes arrière comme gouvernail. Le pelage se gonfle d'air pour augmenter la flottaison. Sous l'eau, les yeux restent ouverts mais les narines se ferment, ils peuvent ainsi retenir leur respiration jusqu'à deux minutes44. Sa fourrure est si isolante qu'il lui arrive de souffrir de la chaleur. Ainsi, il se prélasse parfois sur la glace pour se refroidir ; sur terre, il peut creuser à la recherche de la couche de pergélisol, plus froide que le sol45.</li>
+        </ul>
+        <li>Régime alimentaire:</li>
+        <ul><li>Le mode de vie de l'ours blanc est très différent de celui de son cousin, l'ours brun. En dépit de leur récente séparation au cours de l'évolution, ces deux espèces exploitent des sources d'énergie extrêmement différentes. L'ours brun est terrestre et l'essentiel de son régime est végétal avec un appoint de protéines animales, tandis que l'ours blanc est le plus carnivore des ursidés. Deux espèces de phoques constituent l'essentiel de son régime : Phoca hispida, qui atteint 60 kg, l'espèce la plus nombreuse en Arctique et formant sa proie principale, et Erignathus barbatus, pouvant dépasser 400 kg. Aucune de ces deux espèces de phoque ne se retrouve en l'absence de banquise, ce qui limite l'aire de chasse de l'ours blanc, mais l'ours blanc est opportuniste46. Ainsi, une autre proie commune de l'ours blanc est le morse et il est aussi capable d'attraper des bélugas. En tant que consommateur de poissons, l'ours blanc ingère de grandes quantités de vitamine A qu'il stocke dans son foie. Par le passé, des explorateurs de l'Arctique se sont souvent empoisonnés en mangeant le foie d'un ours blanc, en raison d'une hypervitaminose A.
+
+          Le pelage de l'ours blanc lui offre un excellent camouflage. Lorsqu'il chasse, il cache son museau avec ses pattes, ce qui le trahirait sinon. L'ours est également un bon pêcheur et utilise ses griffes pour harponner ses proies. La femelle peut jeûner près de huit mois avant de mettre bas ses petits, habituellement deux oursons pesant entre 600 et 700 g. Elle retourne ensuite rapidement sur la banquise pour chasser le phoque, sa nourriture favorite, ou attraper du poisson. Les bonnes années, l'ours blanc accumule une épaisse couche de graisse avant la débâcle. Une fois à terre, il entre alors en « hibernation itinérante » : bien que restant en activité, son métabolisme ralentit sensiblement, permettant ainsi d'économiser énergie et réserves.
+          
+          À cause du réchauffement climatique et de la fonte des glaces, l'ours blanc éprouve de plus en plus de difficultés à chasser les phoques. Sa quête de nourriture s’est rapidement portée sur les zones de nidation des oiseaux, faisant des œufs une partie importante de son alimentation. Cependant, l’équilibre alimentaire de l'ours se voit perturbé, en partie parce que les œufs sont trop riches en protéines.</li></ul></li>
+      </li>
+    </ul>
+    <h2 style="color: white; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight:bold;">6.quelque photo de l'ours blanc:</h2>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width:70% ; border: solid;
+border-radius: 5px; position: relative; left: 15%;">s <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="img1 (1).jpg" alt="First slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img2.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img3.jpg" alt="Third slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="img4.jpg" alt="Third slide">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </body>
+</html>
